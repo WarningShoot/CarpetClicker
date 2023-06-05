@@ -7,11 +7,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7970ceb1e3c7ddc43b6978e572e53152, type: 3}
-  m_Name: ClickModule
+  m_Script: {fileID: 11500000, guid: 80d03d7fbc3f0f347a5eb655b3162d68, type: 3}
+  m_Name: BuyModule
   m_EditorClassIdentifier: 
-  baseIncome: 5
-  baseCost: 10
-  baseCount: 1
+  _debugValue: {fileID: 0}

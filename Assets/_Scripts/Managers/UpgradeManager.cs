@@ -12,21 +12,26 @@ public class UpgradeManager : MonoBehaviour
 	[SerializeField] private BigNumberVariable currentIdleIncomeVariable;
 	[SerializeField] private BigNumberVariable currentClickIncomeVariable;
 	[SerializeField] private UpgradeModule clickModule;
+	[SerializeField] private GameEvent refreshIncomeUI;
 	[SerializeField] private List<UpgradeModule> idleModules;
 
 	public void Init()
 	{
 		InitModules();
+		UpdateIncomeVariables();
 	}
 
 	public void BuyModule(UpgradeModule module)
 	{
-		if (module.BaseCostBig.Number >= money.Value.Number * howMuchBuy.Value)
+		if (module.BaseCostBig.Number * howMuchBuy.Value >= money.Value.Number * howMuchBuy.Value)
 			return;
 
-		module.Count.AddNumber(1);
+		module.Count.Number += howMuchBuy.Value;
+		money.Value.Number -= module.BaseCostBig.Number * howMuchBuy.Value;
 
 		UpdateIncomeVariables();
+
+		refreshIncomeUI.Raise();
 	}
 
 	private void InitModules()
@@ -44,8 +49,8 @@ public class UpgradeManager : MonoBehaviour
 		foreach (var module in idleModules)
 			incomeIdle += module.GetIncome();
 
-		currentClickIncomeVariable.Value.SetNumber(incomeClick);
-		currentIdleIncomeVariable.Value.SetNumber(incomeIdle);
+		currentClickIncomeVariable.Value.Number = incomeClick;
+		currentIdleIncomeVariable.Value.Number = incomeIdle;
 		currentIdleIncomeVariable.Raise(); // may cause bugs
 		currentClickIncomeVariable.Raise();
 	}

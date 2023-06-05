@@ -4,7 +4,7 @@ using System.Numerics;
 [Serializable]
 public class BigNumber
 {
-	public BigInteger Number { get; private set; }
+	public BigInteger Number { get; set; }
 	public string NumberString => Number.ToString();
 	public int NumberLenght => NumberString.Length;
 
@@ -27,12 +27,6 @@ public class BigNumber
 	{
 		Number = number;
 	}
-
-	public void SetNumber(BigInteger number) => Number = number;
-
-	public void AddNumber(BigInteger number) => Number += number;
-
-	public void AddNumber(int number) => Number += number;
 
 	public string GetFormattedNumber()
 	{

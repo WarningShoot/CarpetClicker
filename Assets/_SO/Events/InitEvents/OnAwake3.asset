@@ -7,11 +7,8 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7970ceb1e3c7ddc43b6978e572e53152, type: 3}
-  m_Name: ClickModule
+  m_Script: {fileID: 11500000, guid: 7a78c7052899406438e9fc79486b45c0, type: 3}
+  m_Name: OnAwake3
   m_EditorClassIdentifier: 
-  baseIncome: 5
-  baseCost: 10
-  baseCount: 1

@@ -10,17 +10,16 @@ public class IncomeManager : MonoBehaviour
 {
 	[SerializeField] private BoolVariable isPaused;
 	[SerializeField] private BigNumberVariable moneyVariable;
-	[SerializeField] private BigNumberVariable currentIncomeVariable;
+	[SerializeField] private BigNumberVariable currentIdleIncomeVariable;
 	[SerializeField] private BigNumberVariable clickIncomeVariable;
+	[SerializeField] private GameEvent refreshIncomeUI;
+	[SerializeField] private GameEvent playSlider;
 	[SerializeField] private List<UpgradeModule> idleModules;
-
-	private BigNumber money;
 
 	private float interval = 0f;
 
 	public void Init()
 	{
-		money = moneyVariable.Value;
 	}
 
 	private void Update()
@@ -40,13 +39,14 @@ public class IncomeManager : MonoBehaviour
 
 	private void AddIdleModulesIncome()
 	{
-		money.AddNumber(currentIncomeVariable.Value.Number);
-		moneyVariable.Value = money;
+		moneyVariable.Value.Number += currentIdleIncomeVariable.Value.Number;
+		refreshIncomeUI.Raise();
+		playSlider.Raise();
 	}
 
 	public void OnClick()
 	{
-		money.AddNumber(clickIncomeVariable.Value.Number);
-		moneyVariable.Value = money;
+		moneyVariable.Value.Number += clickIncomeVariable.Value.Number;
+		refreshIncomeUI.Raise();
 	}
 }

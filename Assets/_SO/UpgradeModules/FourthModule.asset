@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7970ceb1e3c7ddc43b6978e572e53152, type: 3}
   m_Name: FourthModule
   m_EditorClassIdentifier: 
-  baseIncome: 8
+  baseIncome: 5000000
   baseCost: 40
+  baseCount: 20
