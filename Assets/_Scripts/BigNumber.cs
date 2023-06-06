@@ -55,6 +55,14 @@ public class BigNumber
 
 		return formattedNumber + bigNumberNotification.ToString();
 	}
+
+	public static BigNumber operator +(BigNumber a, BigNumber b) => new BigNumber(a.Number + b.Number);
+
+	public static BigNumber operator -(BigNumber a, BigNumber b) => new BigNumber(a.Number - b.Number);
+
+	public static BigNumber operator *(BigNumber a, BigNumber b) => new BigNumber(a.Number * b.Number);
+
+	public static BigNumber operator /(BigNumber a, BigNumber b) => new BigNumber(a.Number / b.Number);
 }
 
 internal enum BigNumberNotifications

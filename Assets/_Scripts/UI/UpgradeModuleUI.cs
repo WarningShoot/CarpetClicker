@@ -7,6 +7,8 @@ using UnityEngine;
 public class UpgradeModuleUI : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI countModuleText;
+	[SerializeField] private TextMeshProUGUI priceModuleText;
+	[SerializeField] private TextMeshProUGUI incomeModuleText;
 	[SerializeField] private UpgradeModuleGameEvent buyModule;
 
 	private UpgradeModule upgradeModule;
@@ -20,6 +22,8 @@ public class UpgradeModuleUI : MonoBehaviour
 	public void RefreshUI()
 	{
 		countModuleText.text = upgradeModule.Count.GetFormattedNumber();
+		priceModuleText.text = "$" + upgradeModule.BaseCostBig.GetFormattedNumber();
+		incomeModuleText.text = "$" + upgradeModule.GetFormattedIncome();
 	}
 
 	public void OnClick()
